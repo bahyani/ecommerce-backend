@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800">
+  <!-- Title -->
+  <text x="700" y="40" font-size="28" font-weight="bold" text-anchor="middle" fill="#2c3e50">
+    E-Commerce Backend - Entity Relationship Diagram
+  </text>
+  
+  <!-- USER Entity -->
+  <g id="user-entity">
+    <rect x="50" y="100" width="280" height="380" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="3"/>
+    <rect x="50" y="100" width="280" height="50" rx="8" fill="#4a90e2" stroke="#6c8ebf" stroke-width="3"/>
+    <text x="190" y="133" font-size="18" font-weight="bold" text-anchor="middle" fill="white">USER</text>
+    
+    <text x="60" y="175" font-size="12" font-family="monospace" fill="#2c3e50">PK  id (Integer)</text>
+    <text x="60" y="195" font-size="12" font-family="monospace" fill="#2c3e50">    username (String, Unique)</text>
+    <text x="60" y="215" font-size="12" font-family="monospace" fill="#2c3e50">    email (String, Unique)</text>
+    <text x="60" y="235" font-size="12" font-family="monospace" fill="#2c3e50">    password (String, Hashed)</text>
+    <text x="60" y="255" font-size="12" font-family="monospace" fill="#2c3e50">    first_name (String)</text>
+    <text x="60" y="275" font-size="12" font-family="monospace" fill="#2c3e50">    last_name (String)</text>
+    <text x="60" y="295" font-size="12" font-family="monospace" fill="#2c3e50">    phone_number (String)</text>
+    <text x="60" y="315" font-size="12" font-family="monospace" fill="#2c3e50">    address (Text)</text>
+    <text x="60" y="335" font-size="12" font-family="monospace" fill="#2c3e50">    is_staff (Boolean)</text>
+    <text x="60" y="355" font-size="12" font-family="monospace" fill="#2c3e50">    is_active (Boolean)</text>
+    <text x="60" y="375" font-size="12" font-family="monospace" fill="#2c3e50">    created_at (DateTime)</text>
+    <text x="60" y="395" font-size="12" font-family="monospace" fill="#2c3e50">    updated_at (DateTime)</text>
+  </g>
+  
+  <!-- CATEGORY Entity -->
+  <g id="category-entity">
+    <rect x="450" y="100" width="280" height="280" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="3"/>
+    <rect x="450" y="100" width="280" height="50" rx="8" fill="#6ab04c" stroke="#82b366" stroke-width="3"/>
+    <text x="590" y="133" font-size="18" font-weight="bold" text-anchor="middle" fill="white">CATEGORY</text>
+    
+    <text x="460" y="175" font-size="12" font-family="monospace" fill="#2c3e50">PK  id (Integer)</text>
+    <text x="460" y="195" font-size="12" font-family="monospace" fill="#2c3e50">    name (String, Unique)</text>
+    <text x="460" y="215" font-size="12" font-family="monospace" fill="#2c3e50">    description (Text)</text>
+    <text x="460" y="235" font-size="12" font-family="monospace" fill="#2c3e50">    slug (String, Unique)</text>
+    <text x="460" y="255" font-size="12" font-family="monospace" fill="#2c3e50">    is_active (Boolean)</text>
+    <text x="460" y="275" font-size="12" font-family="monospace" fill="#2c3e50">    created_at (DateTime)</text>
+    <text x="460" y="295" font-size="12" font-family="monospace" fill="#2c3e50">    updated_at (DateTime)</text>
+  </g>
+  
+  <!-- PRODUCT Entity -->
+  <g id="product-entity">
+    <rect x="850" y="100" width="300" height="400" rx="8" fill="#fff2cc" stroke="#d6b656" stroke-width="3"/>
+    <rect x="850" y="100" width="300" height="50" rx="8" fill="#f1c40f" stroke="#d6b656" stroke-width="3"/>
+    <text x="1000" y="133" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">PRODUCT</text>
+    
+    <text x="860" y="175" font-size="12" font-family="monospace" fill="#2c3e50">PK  id (Integer)</text>
+    <text x="860" y="195" font-size="12" font-family="monospace" fill="#2c3e50">    name (String)</text>
+    <text x="860" y="215" font-size="12" font-family="monospace" fill="#2c3e50">    description (Text)</text>
+    <text x="860" y="235" font-size="12" font-family="monospace" fill="#2c3e50">    slug (String, Unique)</text>
+    <text x="860" y="255" font-size="12" font-family="monospace" fill="#e74c3c">FK  category_id (Integer)</text>
+    <text x="860" y="275" font-size="12" font-family="monospace" fill="#2c3e50">    price (Decimal 10,2)</text>
+    <text x="860" y="295" font-size="12" font-family="monospace" fill="#2c3e50">    stock_quantity (Integer)</text>
+    <text x="860" y="315" font-size="12" font-family="monospace" fill="#2c3e50">    image (ImageField)</text>
+    <text x="860" y="335" font-size="12" font-family="monospace" fill="#2c3e50">    is_active (Boolean)</text>
+    <text x="860" y="355" font-size="12" font-family="monospace" fill="#2c3e50">    featured (Boolean)</text>
+    <text x="860" y="375" font-size="12" font-family="monospace" fill="#2c3e50">    created_at (DateTime)</text>
+    <text x="860" y="395" font-size="12" font-family="monospace" fill="#2c3e50">    updated_at (DateTime)</text>
+  </g>
+  
+  <!-- Relationship Line: CATEGORY to PRODUCT -->
+  <g id="relationship">
+    <!-- Line from CATEGORY to PRODUCT -->
+    <line x1="730" y1="240" x2="850" y2="240" stroke="#34495e" stroke-width="3"/>
+    
+    <!-- "1" marker near CATEGORY -->
+    <circle cx="730" cy="240" r="15" fill="white" stroke="#34495e" stroke-width="2"/>
+    <text x="730" y="245" font-size="14" font-weight="bold" text-anchor="middle" fill="#34495e">1</text>
+    
+    <!-- "N" marker near PRODUCT (Crow's foot) -->
+    <line x1="850" y1="230" x2="835" y2="240" stroke="#34495e" stroke-width="3"/>
+    <line x1="850" y1="250" x2="835" y2="240" stroke="#34495e" stroke-width="3"/>
+    <line x1="850" y1="240" x2="835" y2="240" stroke="#34495e" stroke-width="3"/>
+    
+    <text x="790" y="225" font-size="13" font-weight="bold" fill="#34495e">has many</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="550" width="300" height="180" rx="8" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2"/>
+    <text x="200" y="580" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">LEGEND</text>
+    
+    <rect x="60" y="600" width="20" height="15" fill="#e74c3c"/>
+    <text x="90" y="612" font-size="13" fill="#2c3e50">PK = Primary Key</text>
+    
+    <rect x="60" y="625" width="20" height="15" fill="#f39c12"/>
+    <text x="90" y="637" font-size="13" fill="#2c3e50">FK = Foreign Key</text>
+    
+    <line x1="60" y1="660" x2="80" y2="660" stroke="#34495e" stroke-width="2"/>
+    <text x="90" y="665" font-size="13" fill="#2c3e50">──── = Relationship</text>
+    
+    <text x="60" y="690" font-size="13" fill="#2c3e50">1:N = One-to-Many</text>
+    <text x="60" y="710" font-size="13" fill="#2c3e50">CASCADE = Delete Rule</text>
+  </g>
+  
+  <!-- Annotations -->
+  <g id="annotations">
+    <rect x="450" y="550" width="700" height="180" rx="8" fill="#f8f9fa" stroke="#95a5a6" stroke-width="2"/>
+    <text x="800" y="580" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">KEY RELATIONSHIPS</text>
+    
+    <text x="460" y="610" font-size="13" fill="#2c3e50" font-weight="bold">CATEGORY → PRODUCT (1:N)</text>
+    <text x="460" y="635" font-size="12" fill="#555">• One category can contain multiple products</text>
+    <text x="460" y="655" font-size="12" fill="#555">• Each product belongs to exactly one category</text>
+    <text x="460" y="675" font-size="12" fill="#555">• Foreign Key: Product.category_id → Category.id</text>
+    <text x="460" y="695" font-size="12" fill="#555">• Delete Rule: CASCADE (delete category = delete products)</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="700" y="780" font-size="11" text-anchor="middle" fill="#7f8c8d">
+    Project Nexus - E-Commerce Backend Database Design
+  </text>
+</svg>
